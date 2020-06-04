@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 import colors from '../../styles/colors';
 
@@ -14,12 +14,33 @@ export const Content = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   max-width: 700px;
   width: 100%;
   padding: 20px 0;
+`;
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(+50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+export const AnimationContainer = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  animation: ${appearFromRight} 1s;
 
   form {
-    margin: 20px 0;
+    margin: 30px 0;
     text-align: center;
     width: 340px;
 
@@ -41,13 +62,13 @@ export const Content = styled.div`
 
   > a {
     align-items: center;
-    color: ${colors.light};
+    color: ${colors.primary};
     display: flex;
     margin-top: 24px;
     transition: color 0.2s;
 
     &:hover {
-      color: ${shade(0.2, colors.light)};
+      color: ${shade(0.2, colors.primary)};
     }
 
     svg {
