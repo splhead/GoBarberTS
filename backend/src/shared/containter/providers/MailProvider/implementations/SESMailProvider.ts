@@ -14,12 +14,12 @@ class SESMailProvider implements IMailProvider {
     @inject('MailTemplateProvider')
     private mailTemplateProvider: IMailTemplateProvider,
   ) {
-    this.client = nodemailer.createTransport({
+    /* this.client = nodemailer.createTransport({
       SES: new aws.SES({
         apiVersion: '2010-12-01',
         region: 'us-east-1',
       }),
-    });
+    }); */
   }
 
   public async sendMail({
@@ -28,7 +28,7 @@ class SESMailProvider implements IMailProvider {
     subject,
     templateData,
   }: ISendMailDTO): Promise<void> {
-    const { name, email } = mailConfig.defaults.from;
+    /* const { name, email } = mailConfig.defaults.from;
     await this.client.sendMail({
       from: {
         name: from?.name || name,
@@ -40,7 +40,7 @@ class SESMailProvider implements IMailProvider {
       },
       subject,
       html: await this.mailTemplateProvider.parse(templateData),
-    });
+    }); */
   }
 }
 
