@@ -7,4 +7,5 @@ export default {
   light: '#f4ede8',
   placeholder: '#666360',
   error: '#c53030',
+  dashboardHeaderbg: '#28262e',
 };
