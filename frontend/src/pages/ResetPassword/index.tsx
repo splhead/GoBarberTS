@@ -68,7 +68,7 @@ const ResetPassword: React.FC = () => {
 
         addToast({
           type: 'error',
-          title: 'Erro ao resetar a senha',
+          title: 'Erro ao atualizar a senha',
           description: 'Por favor verifique seus dados e tente novamente',
         });
       }
@@ -83,7 +83,7 @@ const ResetPassword: React.FC = () => {
           <img src={logoImg} alt="GoBarber" />
 
           <Form ref={formRef} onSubmit={handleSubmit}>
-            <h1>Resetar senha</h1>
+            <h1>Atualizar senha</h1>
 
             <Input
               name="password"
@@ -99,7 +99,7 @@ const ResetPassword: React.FC = () => {
               placeholder="Confirmação da senha"
             />
 
-            <Button type="submit">Alterar senha</Button>
+            <Button type="submit">Atualizar senha</Button>
           </Form>
         </S.AnimationContainer>
       </S.Content>

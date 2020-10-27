@@ -41,13 +41,13 @@ const Profile: React.FC = () => {
             .required('E-mail obrigatório'),
           old_password: Yup.string(),
           password: Yup.string().when('old_password', {
-            is: (val) => !!val.lengh,
+            is: (val) => !!val.length,
             then: Yup.string().required(),
             otherwise: Yup.string(),
           }),
           password_confirmation: Yup.string()
             .when('old_password', {
-              is: (val) => !!val.lengh,
+              is: (val) => !!val.length,
               then: Yup.string().required(),
               otherwise: Yup.string(),
             })
@@ -104,7 +104,7 @@ const Profile: React.FC = () => {
         });
       }
     },
-    [addToast, history],
+    [addToast, history, updateUser],
   );
 
   const handleAvatarChange = useCallback(

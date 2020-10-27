@@ -24,6 +24,7 @@ class AuthenticateUserService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
+
     @inject('HashProvider')
     private hashProvider: IHashProvider,
   ) {}
@@ -32,7 +33,7 @@ class AuthenticateUserService {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
-      throw new AppError({ message: 'Incorret email/password combination' });
+      throw new AppError({ message: 'Incorrect email/password combination' });
     }
 
     const passwordMatched = await this.hashProvider.compareHash(
@@ -41,7 +42,7 @@ class AuthenticateUserService {
     );
 
     if (!passwordMatched) {
-      throw new AppError({ message: 'Incorret email/password combination' });
+      throw new AppError({ message: 'Incorrect email/password combination' });
     }
 
     const token = sign({}, authConfig.secret, {
